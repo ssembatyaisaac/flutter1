@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          colorSchemeSeed: const Color(0xff6750a4), useMaterial3: false),
+          colorSchemeSeed: const Color(0xff31c160), useMaterial3: false),
       home: const AppBarApp(),
     );
   }
@@ -30,7 +30,7 @@ class AppBarApp extends StatelessWidget {
     final Color evenItemColor = colorScheme.primary.withOpacity(0.15);
     const int tabsCount = 3;
     return DefaultTabController(
-      initialIndex: 1,
+      initialIndex: 0,
       length: tabsCount,
       child: Scaffold(
         appBar: AppBar(
@@ -71,41 +71,49 @@ class AppBarApp extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(children: <Widget>[
-          ListView.builder(
-            itemCount: 25,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                tileColor: index.isOdd ? oddItemColor : evenItemColor,
-                title: Text('${titles[0]} $index'),
-              );
-            },
-          ),
-          ListView.builder(
-            itemCount: 25,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                tileColor: index.isOdd ? oddItemColor : evenItemColor,
-                title: Text('${titles[1]} $index'),
-              );
-            },
-          ),
-          ListView.builder(
-            itemCount: 25,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                tileColor: index.isOdd ? oddItemColor : evenItemColor,
-                title: Text('${titles[2]} $index'),
-              );
-            },
-          ),
-        ]),
+        body: TabBarView(
+          children: <Widget>[
+            ListView.builder(
+              itemCount: 25,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  leading: const CircleAvatar(
+                    backgroundColor: Colors.grey,
+                    child: Text("WA"),
+                  ),
+                  tileColor: index.isOdd ? oddItemColor : evenItemColor,
+                  title: const Text('Ssembatya Isaac'),
+                  subtitle: Text('${titles[0]} $index my name is Ducky....'),
+                );
+              },
+            ),
+            ListView.builder(
+              itemCount: 25,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  tileColor: index.isOdd ? oddItemColor : evenItemColor,
+                  title: Text('${titles[1]} $index'),
+                );
+              },
+            ),
+            ListView.builder(
+              itemCount: 25,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  tileColor: index.isOdd ? oddItemColor : evenItemColor,
+                  title: const Text('Ssembatya Isaac'),
+                  subtitle: Text('${titles[2]} $index'),
+                );
+              },
+            ),
+          ],
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             // Add your onPressed code here!
           },
-          backgroundColor: Colors.green[400],
-          child: const Icon(Icon.message),
+          backgroundColor: Colors.green[600],
+          child: const Icon(Icons.message),
         ),
       ),
     );
