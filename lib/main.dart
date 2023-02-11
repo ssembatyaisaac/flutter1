@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'pages/chats.dart';
 
 List<String> titles = <String>[
   'Chats',
@@ -76,6 +77,12 @@ class AppBarApp extends StatelessWidget {
             ListView.builder(
               itemCount: 25,
               itemBuilder: (BuildContext context, int index) {
+                return const ChatTile();
+              },
+            ),
+            ListView.builder(
+              itemCount: 25,
+              itemBuilder: (BuildContext context, int index) {
                 return ListTile(
                   leading: const CircleAvatar(
                     backgroundColor: Colors.grey,
@@ -84,15 +91,6 @@ class AppBarApp extends StatelessWidget {
                   tileColor: index.isOdd ? oddItemColor : evenItemColor,
                   title: const Text('Ssembatya Isaac'),
                   subtitle: Text('${titles[0]} $index my name is Ducky....'),
-                );
-              },
-            ),
-            ListView.builder(
-              itemCount: 25,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  tileColor: index.isOdd ? oddItemColor : evenItemColor,
-                  title: Text('${titles[1]} $index'),
                 );
               },
             ),
